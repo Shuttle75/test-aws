@@ -18,7 +18,7 @@ var client = redis.NewClient(&redis.Options{
 func main() {
 	setErr := client.Set(context.Background(), "1234", "5678", 0).Err()
 	if setErr != nil {
-		log.Printf("Couldn't get item: %v\n", setErr)
+		log.Printf("Couldn't set item: %v\n", setErr)
 	}
 	value, getErr := client.Get(context.Background(), "1234").Int64()
 	if getErr != nil {
