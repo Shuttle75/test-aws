@@ -55,9 +55,8 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't get item: %v\n", err)
 		} else {
-			log.Printf("Get item: %v\n", last)
+			log.Printf("Get item: %v millisec %v\n", last, time.Now().Sub(t1).Milliseconds())
 		}
-		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
 
 		t1 = time.Now()
 		newValue := time.Now().UnixNano()
@@ -65,8 +64,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't put item into table thr_req_to_dest_operator: %v\n", err)
 		} else {
-			log.Printf("Set item: %v\n", newValue)
+			log.Printf("Set item: %v millisec %v\n\n", newValue, time.Now().Sub(t1).Milliseconds())
 		}
-		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
 	}
 }
