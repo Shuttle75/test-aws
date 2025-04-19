@@ -12,7 +12,7 @@ import (
 //aws ssm start-session --target i-0a283e67790f4c8c7 --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters '{\"host\":[\"redis-4guxsh.serverless.euw2.cache.amazonaws.com\"],\"portNumber\":[\"6379\"],\"localPortNumber\":[\"6379\"]}'
 
 var client = redis.NewClient(&redis.Options{
-	Addr:                  "redis-4guxsh.serverless.euw2.cache.amazonaws.com:6379",
+	Addr:                  "master.redis.4guxsh.euw2.cache.amazonaws.com:6379",
 	ContextTimeoutEnabled: false,
 	DB:                    0,
 })
