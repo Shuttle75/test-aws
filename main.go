@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-dax-go-v2/dax"
 	"github.com/redis/go-redis/v9"
 	"log"
+	"test-aws/throttling"
 	"time"
 )
 
@@ -19,7 +20,7 @@ var client = redis.NewClient(&redis.Options{
 
 var endpoint = "daxs://dax-cluster.4guxsh.dax-clusters.eu-west-2.amazonaws.com"
 var daxClient, _ = daxClientNew(endpoint, "eu-west-2")
-var tableThrottling = TableThrottling{
+var tableThrottling = throttling.TableThrottling{
 	TableName: "thr_req_to_dest_operator",
 	Client:    daxClient,
 }
