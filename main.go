@@ -16,11 +16,14 @@ var client = redis.NewClient(&redis.Options{
 })
 
 func main() {
-	_ = client.Set(context.Background(), "1234", "5678", 0).Err()
-	value, err := client.Get(context.Background(), "1234").Int64()
-	if err != nil {
-		log.Printf("Couldn't set item: %v\n", err)
+	setErr := client.Set(context.Background(), "1234", "5678", 0).Err()
+	if setErr != nil {
+		log.Printf("Couldn't get item: %v\n", setErr)
+	}
+	value, getErr := client.Get(context.Background(), "1234").Int64()
+	if getErr != nil {
+		log.Printf("Couldn't get item: %v\n", getErr)
 	} else {
-		log.Printf("Set item: %v\n", value)
+		log.Printf("Get item: %v\n", value)
 	}
 }
