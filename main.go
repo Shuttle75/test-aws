@@ -77,6 +77,8 @@ func main() {
 		errMap := attributevalue.UnmarshalMap(out.Item, &item)
 		if errMap != nil {
 			log.Printf("Couldn't unmarshal response. Here's why: %v\n", err)
+		} else {
+			log.Printf("Get info about %v\n", item)
 		}
 	}
 }
