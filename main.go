@@ -51,14 +51,15 @@ func main() {
 
 	for i := 0; i < 100; i++ {
 		t1 := time.Now()
-
 		last, err := tableThrottling.GetItem(context.Background(), "0123456789")
 		if err != nil {
 			log.Printf("Couldn't get item: %v\n", err)
 		} else {
 			log.Printf("Get item: %v\n", last)
 		}
+		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
 
+		t1 = time.Now()
 		newValue := time.Now().UnixNano()
 		err = tableThrottling.UpdateItem(context.Background(), "0123456789", newValue)
 		if err != nil {
@@ -66,7 +67,6 @@ func main() {
 		} else {
 			log.Printf("Set item: %v\n", newValue)
 		}
-
 		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
 	}
 }
