@@ -59,11 +59,12 @@ func main() {
 			log.Printf("Get item: %v\n", last)
 		}
 
-		err = tableThrottling.UpdateItem(context.Background(), "0123456789", time.Now().UnixNano())
+		newValue := time.Now().UnixNano()
+		err = tableThrottling.UpdateItem(context.Background(), "0123456789", newValue)
 		if err != nil {
 			log.Printf("Couldn't put item into table thr_req_to_dest_operator: %v\n", err)
 		} else {
-			log.Printf("Set item\n")
+			log.Printf("Set item %v\n", newValue)
 		}
 
 		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
