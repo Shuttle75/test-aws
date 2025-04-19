@@ -64,7 +64,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't put item into table thr_req_to_dest_operator: %v\n", err)
 		} else {
-			log.Printf("Set item %v\n", newValue)
+			log.Printf("Set item: %v\n", newValue)
 		}
 
 		println("Milliseconds ", time.Now().Sub(t1).Milliseconds())
