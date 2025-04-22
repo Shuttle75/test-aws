@@ -38,16 +38,16 @@ func daxClientNew(endpoint, region string) (*dax.Dax, error) {
 }
 
 func main() {
-	setErr := client.Set(context.Background(), "1234", "5678", 0).Err()
-	if setErr != nil {
-		log.Printf("Couldn't set item: %v\n", setErr)
-	}
-	value, getErr := client.Get(context.Background(), "1234").Int64()
-	if getErr != nil {
-		log.Printf("Couldn't get item: %v\n", getErr)
-	} else {
-		log.Printf("Get item: %v\n", value)
-	}
+	//setErr := client.Set(context.Background(), "1234", "5678", 0).Err()
+	//if setErr != nil {
+	//	log.Printf("Couldn't set item: %v\n", setErr)
+	//}
+	//value, getErr := client.Get(context.Background(), "1234").Int64()
+	//if getErr != nil {
+	//	log.Printf("Couldn't get item: %v\n", getErr)
+	//} else {
+	//	log.Printf("Get item: %v\n", value)
+	//}
 
 	for i := 0; i < 100; i++ {
 		t1 := time.Now()
