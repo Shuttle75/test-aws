@@ -2,6 +2,7 @@ package throttling
 
 import (
 	"context"
+	"github.com/aws/aws-dax-go-v2/dax"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
@@ -11,12 +12,12 @@ import (
 )
 
 type TableThrottlingDax struct {
-	Client    interface{}
+	Client    *dax.Dax
 	TableName string
 }
 
 func (table *TableThrottlingDax) UpdateItem(ctx context.Context, operator string, last int64) error {
-	_, err := table.Client.(*dynamodb.Client).UpdateItem(ctx, &dynamodb.UpdateItemInput{
+	_, err := table.Client.UpdateItem(ctx, &dynamodb.UpdateItemInput{
 		TableName: aws.String(table.TableName),
 		Key: map[string]types.AttributeValue{
 			"id": &types.AttributeValueMemberS{Value: operator},
@@ -44,7 +45,7 @@ func (table *TableThrottlingDax) GetItem(ctx context.Context, operator string) (
 		id      string
 		LastReq int64
 	}
-	out, err := table.Client.(*dynamodb.Client).GetItem(ctx, &in)
+	out, err := table.Client.GetItem(ctx, &in)
 	if err != nil {
 		log.Printf("Couldn't get info about %v. Here's why: %v\n", operator, err)
 	} else {
