@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-var daxEndpoint = "daxs://dax-cluster.4guxsh.dax-clusters.eu-west-2.amazonaws.com"
+var daxEndpoint = "daxs://test.4guxsh.dax-clusters.eu-west-2.amazonaws.com"
 var ddEndpoint = "https://dynamodb.eu-west-2.amazonaws.com"
 var daxClient, _ = daxClientNew(daxEndpoint, "eu-west-2")
 var ddClient, _ = ddClientNew(ddEndpoint, "eu-west-2")
