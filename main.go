@@ -56,7 +56,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't get item: %v\n", err)
 		} else {
-			log.Printf("Get item: %v millisec %v\n", last, time.Now().Sub(t1).Microseconds())
+			log.Printf("Get item: %v microsec %v\n", last, time.Now().Sub(t1).Microseconds())
 		}
 
 		t1 = time.Now()
@@ -65,7 +65,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't put item into table thr_req_to_dest_operator: %v\n", err)
 		} else {
-			log.Printf("Set item: %v millisec %v\n\n", newValue, time.Now().Sub(t1).Microseconds())
+			log.Printf("Set item: %v microsec %v\n\n", newValue, time.Now().Sub(t1).Microseconds())
 		}
 	}
 
@@ -77,7 +77,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't get item: %v\n", err)
 		} else {
-			log.Printf("Get item: %v millisec %v\n", last, time.Now().Sub(t1).Microseconds())
+			log.Printf("Get item: %v microsec %v\n", last, time.Now().Sub(t1).Microseconds())
 		}
 
 		t1 = time.Now()
@@ -86,7 +86,7 @@ func main() {
 		if err != nil {
 			log.Printf("Couldn't put item into table thr_req_to_dest_operator: %v\n", err)
 		} else {
-			log.Printf("Set item: %v millisec %v\n\n", newValue, time.Now().Sub(t1).Microseconds())
+			log.Printf("Set item: %v microsec %v\n\n", newValue, time.Now().Sub(t1).Microseconds())
 		}
 	}
 }
