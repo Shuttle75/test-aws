@@ -36,7 +36,7 @@ func (table *TableThrottlingDax) UpdateItem(ctx context.Context, operator string
 func (table *TableThrottlingDax) GetItem(ctx context.Context, operator string) (int64, error) {
 	in := dynamodb.GetItemInput{
 		Key: map[string]types.AttributeValue{
-			"DestOperatorId": &types.AttributeValueMemberS{Value: operator},
+			"id": &types.AttributeValueMemberS{Value: operator},
 		},
 		TableName: aws.String(table.TableName),
 	}
